@@ -8,6 +8,16 @@ import { Provider } from 'react-redux';
 
 
 const feeling = (state = [], action) => {
+    if(action.type === 'ADD_FEELING'){
+        console.log(`The feeling value entered in store was: ${action.payload}`)
+        return [...state, action.payload];
+    }
+    return state;
+}
+
+const understanding = (state = [], action) => {
+    
+
     return state;
 }
 
