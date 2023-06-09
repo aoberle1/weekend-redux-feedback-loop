@@ -7,13 +7,13 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
 
-const feedback = (state = [], action) => {
+const feeling = (state = [], action) => {
     return state;
 }
 
 const storeInstance = createStore(
     combineReducers({
-        feedback,
+        feeling,
     }),
     applyMiddleware(logger),
 );
