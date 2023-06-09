@@ -20,7 +20,6 @@ function Feeling () {
     return (
         <div>
             <h3>How are you Feeling today?</h3>
-            <form onSubmit={sendToUnderstanding}>
                 <label htmlFor="feeling">Enter a Number between 1 and 5</label>
                 <input 
                 required
@@ -30,8 +29,7 @@ function Feeling () {
                 max="5"
                 onChange={(event) => setFeeling(event.target.value)} 
                 ></input>
-                <button>Next</button>
-            </form>
+                <button onClick={sendToUnderstanding}>Next</button>
         </div>
     )
 }

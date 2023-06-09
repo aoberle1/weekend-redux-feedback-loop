@@ -18,7 +18,6 @@ function Support () {
     return (
         <div>
         <h3>How well are you being Supported?</h3>
-        <form onSubmit={sendToSupport}>
             <label htmlFor="support">Enter a Number between 1 and 5</label>
             <input 
             required
@@ -28,8 +27,7 @@ function Support () {
             max="5"
             onChange={(event) => setSupport(event.target.value)} 
             ></input>
-            <button>Next</button>
-        </form>
+            <button onClick={sendToSupport}>Next</button>
     </div>
     )
 

@@ -20,7 +20,6 @@ function Understanding () {
     return(
         <div>
         <h3>How well are you Understanding the content?</h3>
-        <form onSubmit={sendToSupported}>
             <label htmlFor="understanding">Enter a Number between 1 and 5</label>
             <input
             required 
@@ -30,8 +29,7 @@ function Understanding () {
             max="5"
             onChange={(event) => setUnderstanding(event.target.value)} 
             ></input>
-            <button>Next</button>
-        </form>
+            <button onClick={sendToSupported}>Next</button>
     </div>
     )
 }
