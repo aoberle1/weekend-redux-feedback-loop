@@ -5,18 +5,20 @@ import { useHistory } from "react-router-dom";
 function Support () {
 
     const dispatch = useDispatch();
+    const history = useHistory();
     const [support, setSupport] = useState(0)
 
-    const sendToSupported = (event) => {
+    const sendToSupport = (event) => {
         event.preventDefault()
         console.log('value of support is:', support)
         dispatch({ type: 'ADD_SUPPORT', payload: support})
+        history.push('/comments')
     }
 
     return (
         <div>
         <h3>How well are you being Supported?</h3>
-        <form onSubmit={sendToSupported}>
+        <form onSubmit={sendToSupport}>
             <label htmlFor="support">Enter a Number between 1 and 5</label>
             <input 
             required
