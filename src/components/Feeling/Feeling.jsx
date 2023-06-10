@@ -12,9 +12,13 @@ function Feeling () {
     const sendToUnderstanding = (event) => {
         event.preventDefault()
         console.log('value of feeling is:', feeling)
+        if (feeling > 5 || feeling < 1) {
+            alert('Please enter value between 1 & 5')
+        } else {
         dispatch({ type: 'ADD_FEELING', payload: feeling})
         history.push('/understanding')
         setFeeling(0)
+        }
     }
 
     return (

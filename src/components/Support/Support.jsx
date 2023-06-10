@@ -11,8 +11,12 @@ function Support () {
     const sendToSupport = (event) => {
         event.preventDefault()
         console.log('value of support is:', support)
+        if (support > 5 || support < 1) {
+            alert('Please enter value between 1 & 5')
+        } else {
         dispatch({ type: 'ADD_SUPPORT', payload: support})
         history.push('/comments')
+        }
     }
 
     return (
