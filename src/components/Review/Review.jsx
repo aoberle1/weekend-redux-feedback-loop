@@ -17,7 +17,7 @@ function Review() {
             comments: feedback[3]
         })
             .then(response => {
-                history.push('/');
+                history.push('/success');
                 dispatch({ type: 'RESET'})
             }).catch(error => {
                 console.log('Problems with the POST:', error);

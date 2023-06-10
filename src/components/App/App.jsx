@@ -7,6 +7,7 @@ import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
 import Comment from '../Comment/Comment';
 import Review from '../Review/Review';
+import Success from '../../Success/Success';
 
 
 function App() {
@@ -17,9 +18,9 @@ function App() {
         <h1 className='App-title'>Feedback!</h1>
         <h4>Don't forget it!</h4>
       </header>
+      <form>
       <Router>
         <Link to='/'>Home</Link>
-      <form>
         <Route exact path='/'>
           <Feeling />
         </Route>
@@ -35,8 +36,12 @@ function App() {
         <Route exact path='/review'>
           <Review />
         </Route>
-        </form>
+        <Route exact path='/success'>
+          <Success />
+        </Route>
       </Router>
+      </form>
+
     </div>
   );
 }
