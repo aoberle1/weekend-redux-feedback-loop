@@ -6,7 +6,9 @@ import logger from 'redux-logger';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
-const feedback = (state = [], action) => {
+const initialState = [];
+
+const feedback = (state = initialState, action) => {
     if (action.type === 'ADD_FEELING') {
         console.log(`The feeling value entered in store was: ${action.payload}`)
         return [...state, action.payload];
@@ -19,41 +21,11 @@ const feedback = (state = [], action) => {
     } else if(action.type === 'ADD_COMMENT') {
         console.log(`The comment entered in store was: ${action.payload}`)
         return [...state, action.payload]
+    } else if(action.type === 'RESET') {
+        return initialState
     }
     return state;
 }
-
-// const feeling = (state = '', action) => {
-//     if (action.type === 'ADD_FEELING') {
-//         console.log(`The feeling value entered in store was: ${action.payload}`)
-//         return [...state, action.payload];
-//     }
-//     return state;
-// }
-
-// const understanding = (state = '', action) => {
-//     if (action.type === 'ADD_UNDERSTANDING') {
-//         console.log(`The understanding value entered in store was: ${action.payload}`)
-//         return [...state, action.payload];
-//     }
-//     return state;
-// }
-
-// const support = (state = '', action) => {
-//     if(action.type === 'ADD_SUPPORT'){
-//         console.log(`The support value entered in store was: ${action.payload}`)
-//         return [...state, action.payload]
-//     }
-//     return state;
-// }
-
-// const comment = (state = '', action) => {
-//     if(action.type === 'ADD_COMMENT') {
-//         console.log(`The comment entered in store was: ${action.payload}`)
-//         return [...state, action.payload]
-//     }
-//     return state;
-// }
 
 const storeInstance = createStore(
     combineReducers({

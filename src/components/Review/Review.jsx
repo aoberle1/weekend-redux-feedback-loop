@@ -3,23 +3,12 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-function Review () {
+function Review() {
     const history = useHistory();
-    // const feeling = useSelector(store => store.feeling);
-    // const understanding = useSelector(store => store.understanding);
-    // const support = useSelector(store => store.support);
-    // const comments = useSelector(store => store.comment);
+    const dispatch = useDispatch();
     const feedback = useSelector(store => store.feedback)
 
-    // const feedbackToSend = {
-    //     feeling,
-    //     understanding,
-    //     support,
-    //     comments
-    // }
-
     const handleSubmit = (event) => {
-        event.preventDefault();
         console.log('feedback to send is:', feedback)
         axios.post('/feedback', {
             feeling: feedback[0],
@@ -29,13 +18,13 @@ function Review () {
         })
             .then(response => {
                 history.push('/');
+                dispatch({ type: 'RESET'})
             }).catch(error => {
                 console.log('Problems with the POST:', error);
             })
     }
 
     return (
-
         <div>
             <h3>Here's Your Feedback!</h3>
             <table>
@@ -60,7 +49,6 @@ function Review () {
             </table>
             <button onClick={handleSubmit}>Submit</button>
         </div>
-
     )
 }
 
