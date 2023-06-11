@@ -18,10 +18,15 @@ function Review() {
         })
             .then(response => {
                 history.push('/success');
+                // dispatch type: RESET sets state back to empty array
                 dispatch({ type: 'RESET'})
             }).catch(error => {
                 console.log('Problems with the POST:', error);
             })
+    }
+
+    const editValue = () => {
+        // if( this.closest.tr.(id) === 0) {}
     }
 
     return (
@@ -29,21 +34,25 @@ function Review() {
             <h3>Here's Your Feedback!</h3>
             <table>
                 <tbody>
-                    <tr>
+                    <tr id="0">
                         <td>How you're feeling:</td>
                         <td>{feedback[0]}</td>
+                        <td><button onClick={editValue}>Edit</button></td>
                     </tr>
-                    <tr>
+                    <tr id="1">
                         <td>How well you understand the material:</td>
                         <td>{feedback[1]}</td>
+                        <td><button>Edit</button></td>
                     </tr>
-                    <tr>
+                    <tr id="2">
                         <td>How supported you feel:</td>
                         <td>{feedback[2]}</td>
+                        <td><button>Edit</button></td>
                     </tr>
-                    <tr>
+                    <tr id="3">
                         <td>Your Comments:</td>
                         <td>{feedback[3]}</td>
+                        <td><button>Edit</button></td>
                     </tr>
                 </tbody>
             </table>
