@@ -18,6 +18,7 @@ function Review() {
         })
             .then(response => {
                 history.push('/success');
+                // dispatch type: RESET sets state back to empty array
                 dispatch({ type: 'RESET'})
             }).catch(error => {
                 console.log('Problems with the POST:', error);
@@ -25,7 +26,7 @@ function Review() {
     }
 
     const editValue = () => {
-        // if( this.closest.)
+        // if( this.closest.tr.(id) === 0) {}
     }
 
     return (
